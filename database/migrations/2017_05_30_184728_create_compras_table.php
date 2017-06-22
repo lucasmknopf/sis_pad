@@ -14,11 +14,12 @@ class CreateComprasTable extends Migration
     public function up()
     {
         Schema::create('compras', function (Blueprint $table) {
-            $table->increments('id_compra');
+            $table->increments('id');
             $table->string('valor_total', 30);
             $table->string('forma_pag', 30);
             $table->string('desc', 30);
-            $table->string('fornecedor', 30);
+            $table->integer('fornecedor_id')->unsigned();
+            $table->foreign('fornecedor_id')->references('id')->on('fornecedor');
             $table->timestamps();
         });
     }

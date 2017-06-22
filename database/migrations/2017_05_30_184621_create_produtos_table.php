@@ -14,9 +14,10 @@ class CreateProdutosTable extends Migration
     public function up()
     {
         Schema::create('produtos', function (Blueprint $table) {
-            $table->increments('id_prod');
+            $table->increments('id');
             $table->string('nome', 30);
-            $table->string('fornecedor', 30);
+            $table->integer('fornecedor_id')->unsigned();
+            $table->foreign('fornecedor_id')->references('id')->on('fornecedor');
             $table->string('dt_validade', 30);
             $table->string('quantidade', 30);
             $table->string('preco_custo', 30);
@@ -32,6 +33,6 @@ class CreateProdutosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('produtos');
+        Schema::dropIfExists('produto');
     }
 }

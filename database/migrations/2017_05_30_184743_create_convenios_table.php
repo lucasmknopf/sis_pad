@@ -14,7 +14,7 @@ class CreateConveniosTable extends Migration
     public function up()
     {
         Schema::create('convenios', function (Blueprint $table) {
-            $table->increments('id_convenio');
+            $table->increments('id');
             $table->string('cliente', 30);
             $table->string('valor_devido', 30);
             $table->string('limite', 30);

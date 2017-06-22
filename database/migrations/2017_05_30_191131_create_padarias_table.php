@@ -14,7 +14,7 @@ class CreatePadariasTable extends Migration
     public function up()
     {
         Schema::create('padarias', function (Blueprint $table) {
-            $table->increments('id_pad');
+            $table->increments('id');
             $table->string('razao_social', 30);
             $table->string('telefone', 30);
             $table->string('endereco', 30);
